@@ -26,6 +26,11 @@ cors_domains =
 
 [history]
 
+[database]
+
+[file_manager]
+enable_object_processing = True
+
 [update_manager]
 channel = dev
 refresh_interval = 168
@@ -36,21 +41,6 @@ channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
 
-[update_manager octoeverywhere]
-type = git_repo
-channel = beta
-path = /home/mary/octoeverywhere
-origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
-env = /home/mary/octoeverywhere-env/bin/python
-requirements = requirements.txt
-install_script = install.sh
-managed_services = 
-	octoeverywhere
-
-[announcements]
-subscriptions = 
-	octoeverywhere
-
 [update_manager mainsail-config]
 type = git_repo
 primary_branch = master
@@ -58,10 +48,10 @@ path = ~/mainsail-config
 origin = git@github.com:mainsail-crew/mainsail-config.git
 managed_services = klipper
 
-[database]
-
-[file_manager]
-enable_object_processing = True
+[update_manager client kiauh]
+type = git_repo
+path = /home/mary/kiauh
+origin = git@github.com:th33xitus/kiauh.git
 
 [update_manager KlipperScreen]
 type = git_repo
@@ -74,40 +64,49 @@ managed_services = KlipperScreen
 
 [update_manager crowsnest]
 type = git_repo
-path = ~/crowsnest
+path = /home/mary/crowsnest
 origin = git@github.com:mainsail-crew/crowsnest.git
 install_script = tools/install.sh
-
-[update_manager klipper-macros]
-type = git_repo
-origin = git@github.com:jschuh/klipper-macros.git
-path = ~/printer_data/config/klipper-macros
-primary_branch = main
-is_system_service = False
-managed_services = klipper
 
 [update_manager Klipper-Adaptive-Meshing-Purging]
 type = git_repo
 channel = dev
-path = ~/Klipper-Adaptive-Meshing-Purging
+path = /home/mary/Klipper-Adaptive-Meshing-Purging
 origin = git@github.com:kyleisah/Klipper-Adaptive-Meshing-Purging.git
 managed_services = klipper
 primary_branch = main
 
 [update_manager mobileraker]
 type = git_repo
-path = ~/mobileraker_companion
+path = /home/mary/mobileraker_companion
 origin = git@github.com:Clon1998/mobileraker_companion.git
 primary_branch = main
 managed_services = mobileraker
-env = ~/mobileraker-env/bin/python
+env = /home/mary/mobileraker-env/bin/python
 requirements = scripts/mobileraker-requirements.txt
 install_script = scripts/install-mobileraker-companion.sh
 
 [update_manager timelapse]
 type = git_repo
 primary_branch = main
-path = ~/moonraker-timelapse
+path = /home/mary/moonraker-timelapse
 origin = git@github.com:mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
+
+[update_manager octoeverywhere]
+type = git_repo
+channel = beta
+path = /home/mary/octoeverywhere
+origin = git@github.com:QuinnDamerell/OctoPrint-OctoEverywhere.git
+env = /home/mary/octoeverywhere-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	octoeverywhere
+
+[announcements]
+subscriptions = 
+	octoeverywhere
+
+[timelapse]
 
