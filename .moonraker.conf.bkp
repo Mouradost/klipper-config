@@ -4,6 +4,7 @@ port = 7125
 klippy_uds_address = ~/printer_data/comms/klippy.sock
 
 [authorization]
+enable_api_key = True
 trusted_clients = 
 	127.0.0.1
 	192.168.3.0/24
@@ -14,7 +15,10 @@ trusted_clients =
 	192.168.0.0/16
 	FE80::/10
 	::1/128
+	my-printer.lan
 cors_domains = 
+	*://my.mainsail.xyz
+	*://*.local
 	*.lan
 	*.local
 	*://localhost
@@ -97,7 +101,7 @@ managed_services = klipper moonraker
 type = git_repo
 channel = beta
 path = /home/mary/octoeverywhere
-origin = git@github.com:QuinnDamerell/OctoPrint-OctoEverywhere.git
+origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
 env = /home/mary/octoeverywhere-env/bin/python
 requirements = requirements.txt
 install_script = install.sh
